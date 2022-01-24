@@ -15,12 +15,12 @@ class CreateBooksTable extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->longText('description');
-            $table->string('image');
+            $table->string('name',50);
+            $table->longText('description',250);
+            $table->string('image',50);
             $table->foreignId('author_id');
             $table->foreignId('category_id');
-            $table->float('price');
+            $table->float('price',20,2);
             $table->integer('number_of_pages');
             // foreign keys
             $table->foreign('category_id')->references('id')->on('categories');

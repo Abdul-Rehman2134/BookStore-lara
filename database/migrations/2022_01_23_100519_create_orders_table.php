@@ -15,7 +15,7 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->float('total_amount');
+            $table->float('total_amount',20,2);
             $table->foreignId('user_id');
             // foreign key
             $table->foreign('user_id')->references('id')->on('users');
