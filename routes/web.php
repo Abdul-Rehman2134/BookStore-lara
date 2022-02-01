@@ -1,9 +1,15 @@
 <?php
 
-use App\Http\Controllers\BooksController;
+// use App\Http\Controllers\BooksController;
+// use App\Http\Controllers\AboutController;
+// use App\Http\Controllers\AuthController;
+// use App\Http\Controllers\CartController;
+
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BooksController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,10 +22,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::resource('/', HomeController::class);
+Route::resource('books',BooksController::class);
 
-Route::get('/',[BooksController::class,'index'])->name('index');
-Route::get('books',[BooksController::class,'books'])->name('books');
-Route::get('about',[AboutController::class,'about'])->name('about');
+Route::get('about',[AboutController::class,'index'])->name('about');
 Route::get('contact',[AboutController::class,'contact'])->name('contact');
 Route::get('login',[AuthController::class,'login'])->name('login');
 Route::get('register',[AuthController::class,'register'])->name('register');

@@ -10,12 +10,14 @@
 </div>
 <div class="carts">
     <div class="cards">
+       @foreach ($books as $book)
         <div class="card">
-            <a href="book-details.php?id=1"><img height="200px" src="{{ asset('assets/image/img10.png') }}" alt="photo">
-                <h5>Hello</h5>
-                <p><b>Author :</b> john</p>
-                <p><b>Category :</b>history</p>
-                <h5 class="num">RS.500</h5>
+            <a href="{{ route('books.show',$book->id) }}">
+                <img height="200px" src="{{ asset('assets/image/'.$book->image) }}" alt="photo">
+                <h5>{{ $book->name }}</h5>
+                <p><b>Author :</b>{{ $book->author->name }} </p>
+                <p><b>Category :</b>{{ $book->category->name }}</p>
+                <h5 class="num">RS.{{ $book->price }}</h5>
             </a>
             <label for="name">QTY</label>
             <form action="cart-post.php" method="POST">
@@ -27,7 +29,7 @@
                 <button class="button">Add To Cart</button>
             </form>
         </div>
-
+        @endforeach
     </div>
 </div>
 @endsection

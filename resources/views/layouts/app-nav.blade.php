@@ -2,8 +2,8 @@
     <header class="header">
         <h1 class="logo"><a href="#">BookStore <i style="color:#04aa6d;" class="fab fa-opencart"></i></a></h1>
         <ul class="main-nav">
-            <li><a href="{{ route('index') }}">Home</a></li>
-            <li><a href="{{ route('books') }}">Books</a></li>
+            <li><a href="{{ url('/') }}">Home</a></li>
+            <li><a href="{{ route('books.index') }}">Books</a></li>
             <li><a href="{{ route('about') }}">About us</a></li>
             <li><a href="{{ route('contact') }}">Contact us</a></li>
             <li><a href="{{ route('login') }}">Login</a></li>
