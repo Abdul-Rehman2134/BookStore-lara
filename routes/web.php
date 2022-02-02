@@ -24,9 +24,9 @@ use Illuminate\Support\Facades\Route;
 */
 Route::resource('/', HomeController::class);
 Route::resource('books',BooksController::class);
+Route::resource('cart',CartController::class);
 
 Route::get('about',[AboutController::class,'index'])->name('about');
 Route::get('contact',[AboutController::class,'contact'])->name('contact');
 Route::get('login',[AuthController::class,'login'])->name('login');
 Route::get('register',[AuthController::class,'register'])->name('register');
-Route::get('cart',[CartController::class,'index'])->name('cart');

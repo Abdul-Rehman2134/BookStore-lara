@@ -3,6 +3,7 @@
     <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    @yield('links')
     <link rel="stylesheet" href="{{ asset('assets/style/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/style/login.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/style/register.css ') }}">

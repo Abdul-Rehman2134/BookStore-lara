@@ -10,8 +10,10 @@
             <li><a href="{{ route('register') }}">register</a></li>
             {{-- <li><a href="logout.php">Logout</a></li> --}}
             {{-- <li><a href="order.php">My-Orders</a></li> --}}
-            <li><a href="{{ route('cart') }}" class="icon">Cart<i class="fa fa-shopping-cart">
-                        <span class='badge badge-warning' id='lblCartCount'>1</span>
+            <li><a href="{{ route('cart.index') }}" class="icon">Cart<i class="fa fa-shopping-cart">
+                        <span class='badge badge-warning' id='lblCartCount'>
+                            {{  !empty(session('cartItems'))?count(session('cartItems')):0; }}
+                        </span>
                     </i></a>
             </li>
             {{-- <li class="li_admin"><a href="admin/"><button class="btn_admin">Admin</button></a></li> --}}

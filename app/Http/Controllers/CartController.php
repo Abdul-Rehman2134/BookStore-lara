@@ -34,7 +34,10 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $existingItems = session()->get('cartItems',[]);
+        $existingItems[] = $request->all();
+        session()->put('cartItems',$existingItems);
+        return redirect(route('cart.index'));
     }
 
     /**
@@ -79,6 +82,9 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cartItems = session()->pull('cartItems',[]);
+        array_splice($cartItems, $id, 1);
+        session()->put('cartItems',$cartItems);
+        return redirect(route('cart.index'));
     }
 }

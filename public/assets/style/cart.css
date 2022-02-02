@@ -7,15 +7,18 @@
 }
 
 .tbl {
-    padding-left: 20px;
-    margin: 20px;
+    padding-left: 10px;
+    margin: 5px;
+    margin-bottom: 20px;
     border-radius: 1.5em;
     box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
     font-family: "Ubuntu", sans-serif;
 }
 
 .tblCart_items {
-    width: 95%;
+    width: 100%;
+    position: relative;
+    right: 20px;
     margin: 20px;
 }
 

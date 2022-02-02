@@ -64,12 +64,15 @@
                 <h5 class="num">RS.{{ $book->price }}</h5>
             </a>
             <label for="name">QTY</label>
-            <form action="cart-post.php" method="POST">
-                <input type="hidden" name="id" value="1">
-                <input type="hidden" name="name" value="2">
-                <input type="hidden" name="author" value="3">
-                <input class="box" name="qty" type="number" value="1" value="1">
-                <input type="hidden" name="price" value="4">
+            <form action="{{ route('cart.store') }}" method="POST">
+                @method('post')
+                @csrf
+                <input class="box" name="qty" type="number" value="1">
+                <input type="hidden" name="id" value="{{ $book->id }}">
+                <input type="hidden" name="name" value="{{ $book->name }}">
+                <input type="hidden" name="category" value="{{ $book->category->name }}">
+                <input type="hidden" name="author" value="{{ $book->author->name }}">
+                <input type="hidden" name="price" value="{{ $book->price }}">
                 <button class="button">Add To Cart</button>
             </form>
         </div>
