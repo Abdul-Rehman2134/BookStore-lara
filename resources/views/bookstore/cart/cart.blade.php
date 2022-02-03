@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Shopping Cart')
 @section('content')
-
 <!-- Title -->
 <center>
   <div class="title">
@@ -12,46 +11,61 @@
   <table class="tblCart_items">
     <tr class="tr">
       <th>#</th>
-      <th style="width:200px;">Item</th>
-      <th>Category</th>
-      <th>Quantity</th>
-      <th>Unit price</th>
-      <th>Total price</th>
-      <th>Action</th>
+      <th style="width:200px;"> Item </th>
+      <th> Category </th>
+      <th> Author </th>
+      <th> Quantity </th>
+      <th> Unit price </th>
+      <th> Total price </th>
+      <th> Action </th>
     </tr>
+    @if(empty(session('cartItems')))
     <tr class="trdEmpty">
       <td>
       <p><b><i>Your shopping cart is empty.please go back and purchase any books. Thanks:)</i></b></p>
       </td>
     </tr>
+    @endif
+    @foreach(session('cartItems') as $index => $cartItem)
     <tr class="trd">
-        <td style="color: red;"><b>1</b></td>
-	    <td style="width:200px;">John</td>
-	    <td align="center">Hello</td>
-	    <td align="center">50</td>
-	    <td align="center">500</td>
-	    <td align="right">5000</td>
+        <td style="color: red;"><b> {{ $index + 1}} </b></td>
+	    <td style="width:200px;"> {{ $cartItem['name'] }} </td>
+	    <td align="center"> {{ $cartItem['category'] }} </td>
+        <td align="center"> {{ $cartItem['author'] }} </td>
+	    <td align="center"> {{ $cartItem['qty'] }} </td>
+	    <td align="center"> {{ $cartItem['price'] }} </td>
+	    <td align="right"> {{ $cartItem['qty'] * $cartItem['price'] }} </td>
 	        <td>
-	          <form action="removecartItem.php" method="POST">
-	            <input type="hidden" name="id" value="1">
-	            <button class="submit1 danger" type=""><i class="fas fa-trash-alt"></i>
+	          <form action="{{ route('cart.destroy',$index) }}" method="POST">
+                  @method('delete')
+                  @csrf
+	            <button class="submit1 danger"><i class="fas fa-trash-alt"></i>
 	          </form>
 	        </td>
 	    </tr>
-	   <tr class="trh">
-      <th>total quantity</th>
-      <th>1</th>
-      <th>total price</th>
-      <th>2</th>
-      <th>
-        <form action="order-post.php" method="POST">
-          <input type="hidden" name="total_items" value="50">
-          <input type="hidden" name="total_price" value="100">
-           <button class="submit success" type="submit">Order Now</button>
+        @endforeach
 
-        </form>
-      </th>
-    </tr>
+        @php
+            $toalItems = count(session('cartItems'));
+            $totalPrice = array_reduce(session('cartItems'),
+            function($carry,$item)
+            {
+                return $carry + $item['qty'] * $item['price'];
+            },0)
+        @endphp
+	    <tr class="trh">
+            <th>total Items</th>
+            <th>{{ $toalItems }}</th>
+            <th>total price</th>
+            <th>{{ $totalPrice }}</th>
+            <th>
+                <form action="order-post.php" method="POST">
+                    <input type="hidden" name="total_items" value="50">
+                    <input type="hidden" name="total_price" value="100">
+                    <button class="submit success" type="submit">Order Now</button>
+                </form>
+            </th>
+        </tr>
   </table>
 </div>
 @endsection

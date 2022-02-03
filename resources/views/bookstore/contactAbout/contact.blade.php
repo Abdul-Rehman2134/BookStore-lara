@@ -2,7 +2,7 @@
 @section('title', 'Contact Us')
 @section('content')
 
-<h1 class="Contactus">Contactu Us</h1>
+<h1 class="Contactus">Contact Us</h1>
 <p class="p">Please fill out the form on this section to contact with me.<br>
     Or call between 9:00 a.m. and 8:00 p.m. ET, Monday through Friday
 </p>

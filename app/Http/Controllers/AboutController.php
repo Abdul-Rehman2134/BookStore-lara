@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class AboutController extends Controller
 {
-    public function about(){
+    public function index(){
         return view('bookstore.contactAbout.about');
     }
     public function contact(){

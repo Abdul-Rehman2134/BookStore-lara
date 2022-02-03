@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use Illuminate\Http\Request;
 
 class BooksController extends Controller
@@ -13,13 +14,9 @@ class BooksController extends Controller
      */
     public function index()
     {
-        return view('bookstore.book.index');
+        $books = Book::Latest()->paginate(12);
+        return view('bookstore.book.books',['books'=>$books]);
     }
-    public function books()
-    {
-        return view('bookstore.book.books');
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -49,7 +46,8 @@ class BooksController extends Controller
      */
     public function show($id)
     {
-        //
+        $book = Book::FindOrFail($id);
+        return view('bookstore.book.book-detail',['book'=>$book]);
     }
 
     /**
