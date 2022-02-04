@@ -12,11 +12,13 @@
         </div>
     </center>
     <div class="cards">
-       @foreach ($books as $book)
+        @foreach ($books as $book)
         <div class="card">
             <a href="{{ route('books.show',$book->id) }}" style="text-decoration:none;font-size:13px">
                 <img height="200px" src="{{ asset('assets/image/'.$book->image) }}" alt="photo">
-                <div style="width: 200px;height: 50px;overflow: hidden;"><h5>{{ $book->name }}</h5></div>
+                <div style="width: 200px;height: 50px;overflow: hidden;">
+                    <h5>{{ $book->name }}</h5>
+                </div>
                 <br>
                 <p><b>Author :</b>{{ $book->author->name }} </p>
                 <p><b>Category :</b>{{ $book->category->name }}</p>
@@ -38,9 +40,9 @@
         @endforeach
     </div>
     <br>
-        <div class="d-flex justify-content-center">
-            {{ $books->links("pagination::bootstrap-4") }}
-        </div>
+    <div class="d-flex justify-content-center">
+        {{ $books->links("pagination::bootstrap-4") }}
+    </div>
     <br>
 </div>
 @endsection

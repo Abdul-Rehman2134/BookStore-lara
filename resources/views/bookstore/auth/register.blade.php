@@ -15,33 +15,39 @@
         </a>
 
         <a class="bt"><button class="btn1" type=""><i class="fas fa-key"></i></button>
-            <input class="un" id="inp" name="password" type="password" placeholder="password" name="password"> <br>
-            <i style="position: relative; bottom: 52px; left: 20%;cursor: pointer" id="icon" onclick="showPass()" class="fas fa-eye-slash"></i>
+            <input class="un" id="pass" name="password" type="password" placeholder="password" name="password"> <br>
+            {{-- <i style="position: relative; bottom: 52px; left: 20%;cursor: pointer" id="icon" onclick="showPass()"
+                class="fas fa-eye-slash"></i> --}}
         </a>
 
         <a class="bt"><button class="btn1" type=""><i class="fas fa-key"></i></button>
-            <input class="un" id="inp1" name="confirmPassword" type="password" placeholder="Confirm password" name="password"> <br>
-            <i style="position: relative; bottom: 52px; left: 20%;cursor: pointer" id="icon1" onclick="showPass()" class="fas fa-eye-slash"></i>
+            <input class="un" id="c_pass" name="confirmPassword" type="password" placeholder="Confirm password"
+                name="password"> <br>
+            {{-- <i style="position: relative; bottom: 52px; left: 20%;cursor: pointer" id="icon1" onclick="showPass()"
+                class="fas fa-eye-slash"></i> --}}
         </a>
+        <div style="position: relative;right:200px"><input type="checkbox" onclick="myFunction()"><span>Show
+                Password</span></div>
+        <select class="submit success" name="type">
+            <option value="Customer">Customer</option>
+            <option value="Admin">Admin</option>
+        </select>
         <button class="submit success" type="submit">Register</button>
     </form>
 </div>
 <script>
-    function showPass(){
-        document.getElementById("inp").type = 'text';
-        document.getElementById("inp1").type = 'text';
-        document.getElementById("icon").className = 'fas fa-eye';
-        document.getElementById("icon1").className = 'fas fa-eye';
-        document.getElementById("icon").setAttribute('onclick','hidePass()');
-        document.getElementById("icon1").setAttribute('onclick','hidePass()');
-    }
-    function hidePass(){
-        document.getElementById("inp").type = 'password';
-        document.getElementById("inp1").type = 'password';
-        document.getElementById("icon").className = 'fas fa-eye-slash';
-        document.getElementById("icon1").className = 'fas fa-eye-slash';
-        document.getElementById("icon").setAttribute('onclick','showPass()');
-        document.getElementById("icon1").setAttribute('onclick','showPass()');
+    function myFunction()
+    {
+        var x = document.getElementById("pass");
+        var y = document.getElementById("c_pass");
+        if (x.type === "password" && y.type === "password"){
+          x.type = "text";
+          y.type = "text";
+        }
+        else{
+          x.type = "password";
+          y.type = "password";
+        }
     }
 </script>
 @endsection

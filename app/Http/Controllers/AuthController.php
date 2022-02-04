@@ -16,8 +16,6 @@ class AuthController extends Controller
         $credential = $request->only('email','password');
         if(Auth::attempt($credential)){
             $request->session()->regenerate();
-            if(Auth::user()->type == 'ADMIN')
-                return redirect(route('books.index'));
             return redirect('/');
         }
     }
@@ -29,9 +27,13 @@ class AuthController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
-        // $user->type = $request->type;
+        $user->type = $request->type;
         $user->save();
-        return redirect('login');
+        $credential = $request->only('email','password');
+        if(Auth::attempt($credential)){
+            $request->session()->regenerate();
+            return redirect('/');
+        }
     }
 
     public function logout(Request $request){

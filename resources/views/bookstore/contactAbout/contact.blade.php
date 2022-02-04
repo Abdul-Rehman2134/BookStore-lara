@@ -8,7 +8,7 @@
 </p>
 <div class="cont">
     <form class="row1" action="">
-        <a class="input1" >
+        <a class="input1">
             <button class="icone1" type=""><i class="fas fa-comment-alt"></i></button>
             <input class="um" type="text" placeholder="Name">
         </a>

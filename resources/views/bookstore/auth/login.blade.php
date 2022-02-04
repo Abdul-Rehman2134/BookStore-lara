@@ -9,14 +9,14 @@
             <input class="un" name="email" type="email" placeholder="Username" name="user"> </a>
         <a class="bt"><button class="btn1" type=""><i class="fas fa-key"></i></button>
             <input id="inp" class="un" name="password" type="password" placeholder="password" name="password"> <br>
-            <i style="position: relative; bottom: 52px; left: 20%;cursor: pointer " class="fas fa-eye-slash" id="icon" onclick="showPass()"></i> </a>
-
+            <i style="position: relative; bottom: 52px; left: 20%;cursor: pointer " class="fas fa-eye-slash" id="icon"
+                onclick="showPass()"></i> </a>
         <button class="submit success" type="submit">Sign in</button>
         <p class="forgot"><a href="#">Forgot Password?</p>
     </form>
 </div>
 <script>
-function showPass(){
+    function showPass(){
     document.getElementById("inp").type = 'text';
     document.getElementById("icon").className = 'fas fa-eye';
     document.getElementById("icon").setAttribute('onclick','hidePass()');
