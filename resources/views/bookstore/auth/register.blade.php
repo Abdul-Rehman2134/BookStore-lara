@@ -15,17 +15,12 @@
         </a>
 
         <a class="bt"><button class="btn1" type=""><i class="fas fa-key"></i></button>
-            <input class="un" id="pass" name="password" type="password" placeholder="password" name="password"> <br>
-            {{-- <i style="position: relative; bottom: 52px; left: 20%;cursor: pointer" id="icon" onclick="showPass()"
-                class="fas fa-eye-slash"></i> --}}
+            <input class="un" id="pass" name="password" type="password" placeholder="password"> <br>
         </a>
 
         <a class="bt"><button class="btn1" type=""><i class="fas fa-key"></i></button>
-            <input class="un" id="c_pass" name="confirmPassword" type="password" placeholder="Confirm password"
-                name="password"> <br>
-            {{-- <i style="position: relative; bottom: 52px; left: 20%;cursor: pointer" id="icon1" onclick="showPass()"
-                class="fas fa-eye-slash"></i> --}}
-        </a>
+            <input class="un" id="c_pass" name="confirmPassword" type="password" placeholder="Confirm password"> <br>
+            </a>
         <div style="position: relative;right:200px"><input type="checkbox" onclick="myFunction()"><span>Show
                 Password</span></div>
         <select class="submit success" name="type">
