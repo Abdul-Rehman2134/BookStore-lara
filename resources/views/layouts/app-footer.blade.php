@@ -1,6 +1,6 @@
- <!-- footer start -->
+<!-- footer start -->
 
- <footer class="footer">
+<footer class="footer">
     <div class="footer__addr">
         <h1 class="footer__logo">Something</h1>
 
