@@ -63,11 +63,15 @@
             <th>total price</th>
             <th>{{ $totalPrice }}</th>
             <th>
-                <form action="order-post.php" method="POST">
-                    <input type="hidden" name="total_items" value="50">
-                    <input type="hidden" name="total_price" value="100">
+                @if(!empty(Auth::user()))
+                <form action="{{ route('orders.store') }}" method="POST">
+                    @csrf
+                    @method('post')
+                    <input type="hidden" name="total_items" value="{{ $totalItems }}">
+                    <input type="hidden" name="total_amount" value="{{ $totalPrice }}">
                     <button class="submit success" type="submit">Order Now</button>
                 </form>
+                @endif
             </th>
         </tr>
     </table>
