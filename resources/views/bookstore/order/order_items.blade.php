@@ -19,17 +19,19 @@
             <th>Unit Price</th>
             <th>Action</th>
         </tr>
-            @foreach ($orderItems as $index=>$item )
-            <tr class="trd">
-                <td style="color: red;">{{ $index + 1 }}</td>
-                <td><img style="height: 60px;position: relative; right:20px;" src="{{ asset('assets/image/'.$item->book->image) }}" alt="image"></td>
-                <td style="position: relative; right:15px;">{{ $item->book->name }}</td>
-                <td align="left">{{ $item->book->category->name }}</td>
-                <td align="center">{{ $item->quantity }}</td>
-                <td align="right">{{ $item->unit_price }}</td>
-                <td align="right"><a href="{{ route('books.show',$item->book->id) }}" class="order_detail"> View</a></td>
-            </tr>
-            @endforeach
-        </table>
+        @foreach ($orderItems as $index=>$item )
+        <tr class="trd">
+            <td style="color: red;">{{ $index + 1 }}</td>
+            <td><img style="height: 60px;position: relative; right:20px;"
+                    src="{{ asset('assets/image/'.$item->book->image) }}" alt="image">
+            </td>
+            <td style="position: relative; right:15px;">{{ $item->book->name }}</td>
+            <td align="left">{{ $item->book->category->name }}</td>
+            <td align="center">{{ $item->quantity }}</td>
+            <td align="right">{{ $item->unit_price }}</td>
+            <td align="right"><a href="{{ route('books.show',$item->book->id) }}" class="order_detail"> View</a></td>
+        </tr>
+        @endforeach
+    </table>
 </div>
 @endsection

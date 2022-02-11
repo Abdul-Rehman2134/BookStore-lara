@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
-use App\Models\Order_item;
+use App\Models\OrderItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -52,7 +52,7 @@ class OrdersController extends Controller
         $order->save();
 
         foreach(session('cartItems') as $item){
-            $orderItem = new Order_item();
+            $orderItem = new OrderItem();
             $orderItem->quantity = $item['qty'];
             $orderItem->unit_price = $item['price'];
             $orderItem->book_id = $item['id'];
@@ -71,7 +71,7 @@ class OrdersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id){
-        $orderItems = Order_item::where('order_id', $id)->get();
+        $orderItems = OrderItem::where('order_id', $id)->get();
         return view('bookstore.order.order_items',['orderItems'=>$orderItems]);
     }
 

@@ -15,6 +15,6 @@ class Book extends Model
         return $this->belongsTo(Category::class);
     }
     public function orderItems(){
-        return $this->hasMany(Order_item::class);
+        return $this->hasMany(OrderItem::class);
     }
 }
