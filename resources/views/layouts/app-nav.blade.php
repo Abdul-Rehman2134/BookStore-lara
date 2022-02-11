@@ -5,7 +5,7 @@
         <li><a href="{{ route('index') }}" style="color:{{ request()->routeIs('index') ? '#04aa6d' : '' }}">Home</a>
         </li>
         <li><a href="{{ route('books.index') }}"
-                style="color:{{ request()->routeIs('books.index') ? '#04aa6d' : '' }}">Books</a></li>
+                style="color:{{ request()->routeIs('books.*') ? '#04aa6d' : '' }}">Books</a></li>
         <li><a href="{{ route('about') }}" style="color:{{ request()->routeIs('about') ? '#04aa6d' : '' }}">About us</a>
         </li>
         <li><a href="{{ route('contact') }}" style="color:{{ request()->routeIs('contact') ? '#04aa6d' : '' }}">Contact
@@ -20,7 +20,8 @@
         @if(empty(session('user')))
         @auth
         <li><a href="{{  route('logout') }}">Logout</a></li>
-        <li><a href="order.php">My-Orders</a></li>
+        <li><a href="{{ route('orders.index') }}"
+                style="color:{{ request()->routeIs('orders.*') ? '#04aa6d' : '' }}">My-Orders</a></li>
         @endauth
         @endif
 
