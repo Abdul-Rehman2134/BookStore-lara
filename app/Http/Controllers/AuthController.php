@@ -21,7 +21,6 @@ class AuthController extends Controller
             if (Auth::user()->type == 'ADMIN')
                 return redirect(route('book.index'));
             return redirect('/');
-            
         }
     }
     public function register()
@@ -39,6 +38,8 @@ class AuthController extends Controller
         $credential = $request->only('email', 'password');
         if (Auth::attempt($credential)) {
             $request->session()->regenerate();
+            if (Auth::user()->type == 'ADMIN')
+                return redirect(route('book.index'));
             return redirect('/');
         }
     }
