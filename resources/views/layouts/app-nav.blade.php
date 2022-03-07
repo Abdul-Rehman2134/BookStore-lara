@@ -33,7 +33,6 @@
                     </span>
                 </i></a>
         </li>
-        {{-- <li class="li_admin"><a href="admin/"><button class="btn_admin">Admin</button></a></li> --}}
     </ul>
 </header>
 <!--header end  -->

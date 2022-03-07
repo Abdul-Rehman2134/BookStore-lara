@@ -40,13 +40,13 @@
   .main-nav a {
       padding-top: 15px;
       color: #34495e;
-      font-size: 0.99em;
-      text-decoration: none;
+      font-size: 0.98em;
   }
   
   .main-nav a:hover,
   .order_detail:hover {
       color: #04aa6d;
+      text-decoration: none;
   }
   
   .icon {
@@ -493,20 +493,19 @@
       text-align: center;
   }
   
-  .li_admin {
-      position: relative;
-      left: 300px;
-      bottom: 30px;
-  }
-  
-  .btn_admin {
-      padding: 12px 20px 12px 20px;
+  .btn_logout {
+      height: 35px;
+      width: 90px;
       border-radius: 10px;
       border: 2px solid #3EB6A6;
       cursor: pointer;
+      position: relative;
+      left: 290px;
+      bottom: px;
+      font-size: 12.5px;
   }
   
-  .btn_admin:hover {
+  .btn_logout:hover {
       border: 2px solid #3EB6A6;
       background-color: #00A38D;
       transition: .5s;
