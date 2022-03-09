@@ -20,7 +20,7 @@ class AuthorsController extends Controller
     public function index()
     {
         $authors = Author::get();
-        return view('admin.authors',['authors' => $authors]);
+        return view('admin.authors', ['authors' => $authors]);
     }
 
     /**
@@ -41,6 +41,9 @@ class AuthorsController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|string|min:4'
+        ]);
         $author = new Author();
         $author->name = $request->name;
         $author->save();
@@ -78,6 +81,9 @@ class AuthorsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required|string|min:4'
+        ]);
         $author = Author::FindOrFail($request->id);
         $author->name = $request->name;
         $author->update();

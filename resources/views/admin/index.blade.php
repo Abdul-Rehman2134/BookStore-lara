@@ -65,6 +65,18 @@
     <div id="addEmployeeModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
+                <center>
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $index => $error)
+                                    <li>{{ $index + 1 }}) {{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                </center>
+                <br>
                 <form method="POST" action="{{ route('book.store') }}">
                     @csrf
                     @method('post')
@@ -126,6 +138,18 @@
     <div id="editEmployeeModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
+                <center>
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $index => $error)
+                                    <li>{{ $index + 1 }}) {{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                </center>
+                <br>
                 <form action="{{ route('book.update', 0) }}" method="POST">
                     @csrf
                     @method('put')

@@ -20,7 +20,7 @@ class CategoriesController extends Controller
     public function index()
     {
         $categories = Category::get();
-        return view('admin.categories',['categories' => $categories]);
+        return view('admin.categories', ['categories' => $categories]);
     }
 
     /**
@@ -41,6 +41,9 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|string|min:4'
+        ]);
         $category = new Category();
         $category->name = $request->name;
         $category->save();
@@ -78,6 +81,9 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required|string|min:4'
+        ]);
         $category = Category::FindOrFail($request->id);
         $category->name = $request->name;
         $category->update();
@@ -92,7 +98,7 @@ class CategoriesController extends Controller
      */
     public function destroy(Request $request)
     {
-        $category =Category::Find($request->id);
+        $category = Category::Find($request->id);
         $category->delete();
         return back();
     }

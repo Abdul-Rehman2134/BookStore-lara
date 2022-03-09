@@ -37,8 +37,8 @@
                                         <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
                                     </a>
                                     <!-- Delete Icon -->
-                                    <a href="#deleteEmployeeModal" class="delete" data-toggle="modal" data-id="{{ $category->id }}"
-                                        data-name="{{ $category->name }}">
+                                    <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"
+                                        data-id="{{ $category->id }}" data-name="{{ $category->name }}">
                                         <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
                                     </a>
                                 </td>
@@ -53,6 +53,18 @@
     <div id="addEmployeeModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
+                <center>
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                </center>
+                <br>
                 <form action="{{ route('categories.store') }}" method="POST">
                     @csrf
                     @method('post')
@@ -79,7 +91,19 @@
     <div id="editEmployeeModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="{{ route('categories.update',0) }}" method="POST">
+                <center>
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                </center>
+                <br>
+                <form action="{{ route('categories.update', 0) }}" method="POST">
                     @csrf
                     @method('put')
                     <div class="modal-header">
@@ -106,7 +130,7 @@
     <div id="deleteEmployeeModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="{{ route('categories.destroy',0) }}" method="POST">
+                <form action="{{ route('categories.destroy', 0) }}" method="POST">
                     @csrf
                     @method('delete')
                     <div class="modal-header">
