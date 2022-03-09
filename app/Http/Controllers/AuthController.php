@@ -9,34 +9,43 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function login(){
+    public function login()
+    {
         return view('bookstore.auth.login');
     }
-    public function loginConfirmed(Request $request){
-        $credential = $request->only('email','password');
-        if(Auth::attempt($credential)){
+    public function loginConfirmed(Request $request)
+    {
+        $credential = $request->only('email', 'password');
+        if (Auth::attempt($credential)) {
             $request->session()->regenerate();
+            if (Auth::user()->type == 'ADMIN')
+                return redirect(route('book.index'));
             return redirect('/');
         }
     }
-    public function register(){
+    public function register()
+    {
         return view('bookstore.auth.register');
     }
-    public function registerConfirmed(Request $request){
+    public function registerConfirmed(Request $request)
+    {
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->type = $request->type;
         $user->save();
-        $credential = $request->only('email','password');
-        if(Auth::attempt($credential)){
+        $credential = $request->only('email', 'password');
+        if (Auth::attempt($credential)) {
             $request->session()->regenerate();
+            if (Auth::user()->type == 'ADMIN')
+                return redirect(route('book.index'));
             return redirect('/');
         }
     }
 
-    public function logout(Request $request){
+    public function logout(Request $request)
+    {
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();

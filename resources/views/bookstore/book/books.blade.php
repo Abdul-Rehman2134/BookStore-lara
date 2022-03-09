@@ -16,8 +16,9 @@
         <div class="card">
             <a href="{{ route('books.show',$book->id) }}" style="text-decoration:none;font-size:13px">
                 <img height="200px" src="{{ asset('assets/image/'.$book->image) }}" alt="photo">
-                <div style="width: 200px;height: 50px;overflow: hidden;">
-                    <h5>{{ $book->name }}</h5>
+                <hr>
+                <div style="width: 200px;height: 33px">
+                    <h6 style="font-weight: 900;color: rgb(41, 37, 37)">{{ $book->name }}</h6>
                 </div>
                 <br>
                 <p><b>Author :</b>{{ $book->author->name }} </p>
@@ -34,6 +35,7 @@
                 <input type="hidden" name="category" value="{{ $book->category->name }}">
                 <input type="hidden" name="author" value="{{ $book->author->name }}">
                 <input type="hidden" name="price" value="{{ $book->price }}">
+                <hr>
                 <button class="button">Add To Cart</button>
             </form>
         </div>

@@ -15,9 +15,10 @@
         <div class="items">
             <h1>{{ $book->name }}</h1>
 
-            <p><b>Author :</b> {{ $book->author->name }}</p>
-            <p><b>Category :</b>{{ $book->category->name }}</p>
-            <p><b>Price :</b> Rs. {{ $book->price }}</p>
+            <p><b>Author : </b> {{ $book->author->name }}</p>
+            <p><b>Category : </b>{{ $book->category->name }}</p>
+            <p><b>Pages : </b>{{ $book->number_of_pages}}</p>
+            <p><b>Price : </b> Rs. {{ $book->price }}</p>
 
             <h3>Description</h3>
             <p>{{ $book->description }}</p>
