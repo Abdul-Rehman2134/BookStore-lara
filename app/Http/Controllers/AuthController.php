@@ -15,6 +15,10 @@ class AuthController extends Controller
     }
     public function loginConfirmed(Request $request)
     {
+        $request->validate([
+            'email' => 'required|max:255|email',
+            'password' => 'required|min:8',
+        ]);
         $credential = $request->only('email', 'password');
         if (Auth::attempt($credential)) {
             $request->session()->regenerate();
@@ -29,6 +33,13 @@ class AuthController extends Controller
     }
     public function registerConfirmed(Request $request)
     {
+        $request->validate([
+            'name' => 'required|min:5|max:18',
+            'email' => 'required|max:255|email',
+            'password' => 'min:8|required_with:confirmPassword|same:confirmPassword',
+            'confirmPassword' => 'min:8',
+            'type' => 'required|string'
+        ]);
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;

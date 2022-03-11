@@ -53,6 +53,18 @@
     <div id="addEmployeeModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
+                <center>
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                </center>
+                <br>
                 <form action="{{ route('authors.store') }}" method="POST">
                     @csrf
                     @method('post')
@@ -79,7 +91,19 @@
     <div id="editEmployeeModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="{{ route('authors.update',0) }}" method="POST">
+                <center>
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                </center>
+                <br>
+                <form action="{{ route('authors.update', 0) }}" method="POST">
                     @csrf
                     @method('put')
                     <div class="modal-header">
@@ -106,7 +130,7 @@
     <div id="deleteEmployeeModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="{{  route('authors.destroy',0) }}"method="POST">
+                <form action="{{ route('authors.destroy', 0) }}" method="POST">
                     @method('delete')
                     @csrf
                     <div class="modal-header">

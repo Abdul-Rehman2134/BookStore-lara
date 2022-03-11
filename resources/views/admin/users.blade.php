@@ -16,9 +16,8 @@
                         <tr>
                             <th>#</th>
                             <th>Name</th>
-                            <th>Type</th>
                             <th>Email</th>
-                            <th>Password</th>
+                            <th>Type</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -26,9 +25,8 @@
                         <tr>
                             <td class="text-danger"><b>{{ $index + 1 }}</b></td>
                             <td>{{ $user->name }}</td>
-                            <td>{{ $user->type }}</td>
                             <td>{{ $user->email }}</td>
-                            <td class="text-right">{{ $user->password }}</td>
+                            <td class="{{ ($user->type == 'ADMIN')? 'text-success':'text-danger' }}"><b>{{ $user->type }}</b></td>
                         </tr>
                         @endforeach
                     </tbody>
