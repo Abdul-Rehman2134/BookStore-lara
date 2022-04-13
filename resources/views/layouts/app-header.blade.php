@@ -1,6 +1,7 @@
 <head>
     <title>@yield('title')</title>
-    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/image/icon.png') }}">
+    {{-- <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" /> --}}
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     @yield('links')
