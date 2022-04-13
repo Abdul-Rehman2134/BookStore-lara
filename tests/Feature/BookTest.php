@@ -18,7 +18,7 @@ class BookTest extends TestCase
      * @return void
      */
     // Book Page
-    public function test_book()
+    public function test_index()
     {
         $author = Author::factory()->create();
         $category = Category::factory()->create();
@@ -32,7 +32,7 @@ class BookTest extends TestCase
             ->assertSeeText('QTY');
     }
     // Book Detail Page
-    public function test_book_detail()
+    public function test_view()
     {
         $author = Author::factory()->create();
         $category = Category::factory()->create();
@@ -71,7 +71,7 @@ class BookTest extends TestCase
             ->assertSee($book->price);
     }
     // Add Book
-    public function test_admin_add_book()
+    public function test_create()
     {
         $this->login();
         $author = Author::factory()->create();
@@ -83,7 +83,7 @@ class BookTest extends TestCase
             ->assertSeeText('Description');
     }
     // Book create
-    public function test_admin_book_store()
+    public function test_store()
     {
         $this->login();
         $author = Author::factory()->create();
@@ -112,7 +112,7 @@ class BookTest extends TestCase
         );
     }
     // Edit Book
-    public function test_admin_edit_book()
+    public function test_edit()
     {
         $this->login();
         $author = Author::factory()->create();
@@ -124,7 +124,7 @@ class BookTest extends TestCase
             ->assertSeeText('Description');
     }
     // Book update
-    public function test_admin_book_update()
+    public function test_update()
     {
         $this->login();
         $author = Author::factory()->create();
@@ -153,7 +153,7 @@ class BookTest extends TestCase
         );
     }
     // Book Delete
-    public function test_admin_book_delete()
+    public function test_destroy()
     {
         $this->login();
         $author = Author::factory()->create();
@@ -161,6 +161,5 @@ class BookTest extends TestCase
         $book = Book::factory()->create(['author_id' => $author->id, 'category_id' => $category->id]);
         $this->post(route('book.destroy', $book->id))
             ->assertSessionDoesntHaveErrors();
-        // ->assertRedirect();
     }
 }

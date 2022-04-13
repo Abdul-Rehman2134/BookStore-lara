@@ -16,7 +16,7 @@ class CategoryTest extends TestCase
      * @return void
      */
     // Category List
-    public function test_category_list()
+    public function test_list()
     {
         $this->login();
         $category = Category::factory()->create();
@@ -28,7 +28,7 @@ class CategoryTest extends TestCase
     }
 
     // Category Add
-    public function test_category_add()
+    public function test_create()
     {
         $this->login();
         $category = Category::factory()->create();
@@ -38,7 +38,7 @@ class CategoryTest extends TestCase
     }
 
     // Category Create
-    public function test_category_create()
+    public function test_store()
     {
         $this->login();
         $category = Category::factory()->create();
@@ -56,7 +56,7 @@ class CategoryTest extends TestCase
     }
 
     // Category Edit
-    public function test_category_edit()
+    public function test_edit()
     {
         $this->login();
         $category = Category::factory()->create();
@@ -66,7 +66,7 @@ class CategoryTest extends TestCase
     }
 
     // Category Update
-    public function test_category_update()
+    public function test_update()
     {
         $this->login();
         $category = Category::factory()->create();
@@ -84,7 +84,7 @@ class CategoryTest extends TestCase
     }
 
     // Category Delete
-    public function test_category_destroy()
+    public function test_destroy()
     {
         $category = Category::factory()->create();
         $this->get(route('categories.destroy', $category->id))

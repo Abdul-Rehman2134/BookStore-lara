@@ -17,7 +17,7 @@ class HomeTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
+    public function test_index()
     {
         $author = Author::factory()->create();
         $category = Category::factory()->create();

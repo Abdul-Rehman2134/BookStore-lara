@@ -15,7 +15,7 @@ class AuthorTest extends TestCase
      *
      * @return void
      */
-    public function test_author_list()
+    public function test_list()
     {
         $this->login();
         $author = Author::factory()->create();
@@ -27,7 +27,7 @@ class AuthorTest extends TestCase
     }
 
     // Author Add
-    public function test_author_add()
+    public function test_create()
     {
         $this->login();
         $author = Author::factory()->create();
@@ -37,7 +37,7 @@ class AuthorTest extends TestCase
     }
 
     // Author Create
-    public function test_author_create()
+    public function test_store()
     {
         $this->login();
         $author = Author::factory()->create();
@@ -55,7 +55,7 @@ class AuthorTest extends TestCase
     }
 
     // Author Edit
-    public function test_author_edit()
+    public function test_edit()
     {
         $this->login();
         $author = Author::factory()->create();
@@ -65,7 +65,7 @@ class AuthorTest extends TestCase
     }
 
     // Author Update
-    public function test_author_update()
+    public function test_update()
     {
         $this->login();
         $author = Author::factory()->create();
@@ -83,7 +83,7 @@ class AuthorTest extends TestCase
     }
 
     // Author Delete
-    public function test_author_destroy()
+    public function test_destroy()
     {
         $author = Author::factory()->create();
         $this->get(route('authors.destroy', $author->id))

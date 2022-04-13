@@ -17,7 +17,7 @@ class CartTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
+    public function test_index()
     {
         $this->get(route('cart.index'))
             ->assertSeeText('Shopping Bag')

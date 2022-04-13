@@ -14,7 +14,7 @@ class AboutTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
+    public function test_index()
     {
         $this->get(route('about'))
             ->assertSeeText('About Us')
