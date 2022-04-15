@@ -8,7 +8,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $books = Book::limit(4)->get();
+        $books = Book::limit(4)->orderBy('id', 'DESC')->get();
         return view('bookstore.book.index',['books'=>$books]);
     }
 }

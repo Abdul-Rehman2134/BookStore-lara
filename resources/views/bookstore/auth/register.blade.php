@@ -37,11 +37,11 @@
                 <input class="un" id="c_pass" name="confirmPassword" type="password"
                     placeholder="Confirm password"> <br>
             </a>
-            <div style="position: relative;right:200px"><input type="checkbox" onclick="myFunction()"><span>Show
+            <div style="position: relative;right:200px"><input type="checkbox" onclick="myFunction()"><span> Show
                     Password</span></div>
             <select class="submit success" name="type">
-                <option value="Customer">Customer</option>
-                <option value="Admin">Admin</option>
+                <option value="CUSTOMER">Customer</option>
+                <option value="ADMIN">Admin</option>
             </select>
             <button class="submit success" type="submit">Register</button>
         </form>
