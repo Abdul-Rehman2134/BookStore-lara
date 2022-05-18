@@ -17,20 +17,15 @@ class CategoriesController extends Controller
     {
         $this->middleware('auth');
     }
+
+    private $validationRules = [
+        'name' => 'required|string|min:4'
+    ];
+
     public function index()
     {
         $categories = Category::get();
         return view('admin.categories', ['categories' => $categories]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -41,35 +36,12 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|min:4'
-        ]);
+        $request->validate($this->validationRules);
+
         $category = new Category();
         $category->name = $request->name;
         $category->save();
         return back();
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
     }
 
     /**
@@ -81,9 +53,8 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required|string|min:4'
-        ]);
+        $request->validate($this->validationRules);
+
         $category = Category::FindOrFail($request->id);
         $category->name = $request->name;
         $category->update();

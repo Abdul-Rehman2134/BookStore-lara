@@ -19,6 +19,15 @@ class BookController extends Controller
     {
         $this->middleware('auth');
     }
+
+    private $validationRules = [
+        'name' => 'required|string|min:5|max:20',
+        'image' => 'required',
+        'pages' => 'required',
+        'price' => 'required',
+        'description' => 'required|max:250'
+    ];
+
     public function index()
     {
         $books = Book::Latest()->paginate(10);
@@ -45,13 +54,8 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|min:5|max:20',
-            'image' => 'required',
-            'pages' => 'required',
-            'price' => 'required',
-            'description' => 'required|max:250'
-        ]);
+        $request->validate($this->validationRules);
+
         $book = new Book();
         $book->name = $request->name;
         $book->image = $request->image;
@@ -95,13 +99,8 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required|string|min:5|max:20',
-            'image' => 'required',
-            'pages' => 'required',
-            'price' => 'required',
-            'description' => 'required|max:250'
-        ]);
+        $request->validate($this->validationRules);
+
         $book = Book::findOrFail($request->id);
         $book->name = $request->name;
         $book->image = $request->image;
