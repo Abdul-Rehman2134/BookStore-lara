@@ -88,7 +88,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Name</label>
-                            <input name="name" type="text" class="form-control" required>
+                            <input name="name" type="text" class="form-control" value="{{ old('name') }}" required>
                         </div>
                         <div class="form-group">
                             <label>Image</label>
@@ -107,7 +107,7 @@
                         <div class="form-group">
                             <label>Category</label>
                             <select name="category" class="form-control">
-                                <option value="">Select Category</option>
+                                <option value=" ">Select Category</option>
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
@@ -115,11 +115,11 @@
                         </div>
                         <div class="form-group">
                             <label>Pages</label>
-                            <input name="pages" type="number" class="form-control" required>
+                            <input name="pages" type="number" class="form-control" value="{{ old('pages') }}" required>
                         </div>
                         <div class="form-group">
                             <label>Price</label>
-                            <input name="price" type="number" class="form-control" required>
+                            <input name="price" type="number" class="form-control" value="{{ old('price') }}" required>
                         </div>
                         <div class="form-group">
                             <label>Description</label>
@@ -161,7 +161,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Name</label>
-                            <input value="" id="b_name" name="name" type="text" class="form-control" required>
+                            <input value="" id="b_name" name="name" type="text" class="form-control" value="{{ old('name') }}" required>
                         </div>
                         <div class="form-group">
                             <label>Image</label>
@@ -186,11 +186,11 @@
                         </div>
                         <div class="form-group">
                             <label>Pages</label>
-                            <input id="b_pages" name="pages" type="number" class="form-control" required>
+                            <input id="b_pages" name="pages" type="number" class="form-control" value="{{ old('pages') }}" required>
                         </div>
                         <div class="form-group">
                             <label>Price</label>
-                            <input id="b_price" name="price" type="number" class="form-control" required>
+                            <input id="b_price" name="price" type="number" class="form-control" value="{{ old('price') }}" required>
                         </div>
                         <div class="form-group">
                             <label>Description</label>
@@ -243,7 +243,7 @@
             $('.b_del_id').val($(this).data('id'));
             $('#del_name').text($(this).data('name'));
         })
-        // on clik Edit Icon    
+        // on clik Edit Icon
         $('.edit').click(function() {
             $('#b_id').val($(this).data('id'));
             $('#b_name').val($(this).data('name'));

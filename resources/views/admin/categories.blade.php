@@ -76,7 +76,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Name</label>
-                            <input name="name" type="text" class="form-control" required>
+                            <input name="name" type="text" class="form-control" value="{{ old('name') }}" required>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -114,7 +114,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Name</label>
-                            <input id="c_name" name="name" type="text" class="form-control" required>
+                            <input id="c_name" name="name" type="text" class="form-control" value="{{ old('name') }}" required>
                         </div>
                     </div>
                     <div class="modal-footer">
