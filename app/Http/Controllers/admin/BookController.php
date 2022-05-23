@@ -56,14 +56,11 @@ class BookController extends Controller
     {
         $request->validate($this->validationRules);
 
-        $book = new Book();
-        $book->name = $request->name;
-        $book->image = $request->image;
+        $post_data = $request->all();
+        $book = new Book($post_data);
         $book->author_id = $request->author;
         $book->category_id = $request->category;
         $book->number_of_pages = $request->pages;
-        $book->price = $request->price;
-        $book->description = $request->description;
         $book->save();
         return back();
     }
@@ -102,14 +99,11 @@ class BookController extends Controller
         $request->validate($this->validationRules);
 
         $book = Book::findOrFail($request->id);
-        $book->name = $request->name;
-        $book->image = $request->image;
+        $post_data = $request->all();
+        $book->update($post_data);
         $book->author_id = $request->author;
         $book->category_id = $request->category;
         $book->number_of_pages = $request->pages;
-        $book->price = $request->price;
-        $book->description = $request->description;
-        $book->update();
         return back();
     }
 
